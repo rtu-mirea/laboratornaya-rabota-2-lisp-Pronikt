@@ -13,5 +13,5 @@
     (_print_text (open path :if-does-not-exist nil))
 )
 
-(print-lines "error")
-(print-lines "text.txt")
+(print_text "error")
+(print_text "text.txt")
