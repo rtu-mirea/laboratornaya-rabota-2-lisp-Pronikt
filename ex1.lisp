@@ -4,10 +4,10 @@
 
 
 ;; Функция вставки элемента в список
-(defun _insert (head tail at value current)
+(defun _insert_element (head tail at value current)
     (if (= at current)
         (append head (cons value tail))
-        (_insert 
+        (_insert_element 
             (append head (list (car tail)))
             (cdr tail)
             at
@@ -19,10 +19,10 @@
 
 
 ;; Функция удаления элемента из списка
-(defun _remove (head tail at current)
+(defun _remove_element (head tail at current)
     (if (= at current)
         (append head (cdr tail))
-        (_remove 
+        (_remove_element 
             (append head (list (car tail)))
             (cdr tail)
             at
@@ -33,25 +33,25 @@
 
 
 ;; Функция поиска элемента списка
-(defun _index (value lst index)
+(defun _index_element (value lst index)
     (if (= (car lst) value)
         index
-        (_index value (cdr lst) (+ 1 index))
+        (_index_element value (cdr lst) (+ 1 index))
     )
 )
 
-(defun insert (lst at value)
-    (_insert `() lst at value 0)
+(defun insert_el (lst at value)
+    (_insert_element `() lst at value 0)
 )
 
-(defun remove (index lst)
-    (_remove `() lst index 0)
+(defun remove_el (index lst)
+    (_remove_element `() lst index 0)
 )
 
-(defun index (value lst)
-    (_index value lst 0)
+(defun index_el (value lst)
+    (_index_element value lst 0)
 )
 
-(insert (test_list) 2 3131)
-(index 5 (test_list))
-(remove 3 (test_list))
+(insert_el (test_list) 2 3131)
+(index_el 5 (test_list))
+(remove_el 3 (test_list))
